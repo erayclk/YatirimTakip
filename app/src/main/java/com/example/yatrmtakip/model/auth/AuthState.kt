@@ -1,4 +1,4 @@
-package com.example.yatrmtakip.model
+package com.example.yatrmtakip.model.auth
 
 data class AuthScrenState(
     val email: String = "",

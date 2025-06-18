@@ -84,4 +84,7 @@ dependencies {
     kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
 
     implementation("androidx.compose.foundation:foundation:1.6.0")
+
+    implementation ("androidx.compose.material:material-icons-extended")
+
 }

@@ -2,8 +2,7 @@ package com.example.yatrmtakip.ui.signup
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.yatrmtakip.model.AuthUserState
-import com.example.yatrmtakip.ui.login.UiEvent
+import com.example.yatrmtakip.model.auth.AuthUserState
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

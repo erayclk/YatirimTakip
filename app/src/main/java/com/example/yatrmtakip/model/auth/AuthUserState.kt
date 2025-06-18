@@ -1,4 +1,4 @@
-package com.example.yatrmtakip.model
+package com.example.yatrmtakip.model.auth
 
 data class AuthUserState(
     val name: String = "",

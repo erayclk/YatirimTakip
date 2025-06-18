@@ -2,7 +2,7 @@ package com.example.yatrmtakip.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.yatrmtakip.model.AuthScrenState
+import com.example.yatrmtakip.model.auth.AuthScrenState
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -61,6 +61,7 @@ class LoginViewModel: ViewModel() {
             updateIsLoading(false)
             if (_state.value.email == "test" && _state.value.password == "123") {
                 _event.send(UiEvent.ShowSnackbar("Login successful"))
+
             } else {
                 _event.send(UiEvent.ShowSnackbar("Invalid Credentials"))
             }
