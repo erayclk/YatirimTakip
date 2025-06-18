@@ -113,7 +113,7 @@ fun SignUpScreen(
                 onValueChange = { name ->
                     viewModel.onEvent(UiSignUpEvent.EnterUsername(name))
                 },
-                label = { Text(text = "Name") },
+                label = { Text(text = "İsim giriniz ") },
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
@@ -129,7 +129,7 @@ fun SignUpScreen(
                 onValueChange = { password ->
                     viewModel.onEvent(UiSignUpEvent.EnterPassword(password))
                 },
-                label = { Text(text = "Password") },
+                label = { Text(text = "Şifre") },
                 modifier = Modifier.fillMaxWidth()
             )
 

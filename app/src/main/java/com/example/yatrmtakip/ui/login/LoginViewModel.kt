@@ -61,6 +61,7 @@ class LoginViewModel: ViewModel() {
             updateIsLoading(false)
             if (_state.value.email == "test" && _state.value.password == "123") {
                 _event.send(UiEvent.ShowSnackbar("Login successful"))
+
             } else {
                 _event.send(UiEvent.ShowSnackbar("Invalid Credentials"))
             }

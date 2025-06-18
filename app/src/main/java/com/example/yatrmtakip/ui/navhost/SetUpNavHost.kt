@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.yatrmtakip.model.Screen
 import com.example.yatrmtakip.ui.login.LoginScreen
+import com.example.yatrmtakip.ui.mainscreen.DashBoard
 import com.example.yatrmtakip.ui.signup.SignUpScreen
 
 @Composable
@@ -16,10 +17,11 @@ fun SetUpNavHost(
 ) {
     NavHost(
         navController,
-        startDestination = Screen.Login.route
+        startDestination = Screen.Main.route
     ) {
 
-        composable(Screen.Login.route,
+        composable(
+            Screen.Login.route,
             enterTransition = {
                 slideIntoContainer(
                     AnimatedContentTransitionScope.SlideDirection.Left,
@@ -31,14 +33,16 @@ fun SetUpNavHost(
                     AnimatedContentTransitionScope.SlideDirection.Right,
                     animationSpec = tween(700)
                 )
-            }
-            ,
-            ) {
+            },
+        ) {
             LoginScreen(navController)
 
         }
         composable(Screen.SignUp.route) {
             SignUpScreen(navController)
+        }
+        composable(Screen.Main.route) {
+            DashBoard(navController)
         }
 
 

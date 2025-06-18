@@ -130,6 +130,7 @@ fun LoginScreen(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
                     viewModel.signIn()
+                    navController.navigate(Screen.Main.route)
                 },
                 enabled = !state.isLoading
             ) {
