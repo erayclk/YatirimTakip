@@ -34,15 +34,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.yatrmtakip.R
 
-
+@Preview(showBackground = true)
 @Composable
-@Preview
-fun CategoryCard() {
+fun CategoryCard(
+    categoryName: String = "Hisse Senetleri",
+    value: String = "3.817,36 TL",
+    profitLoss: String = "-0.00% Zarar",
+    percentage: Int = 45
+) {
     Row(
         modifier = Modifier
+            .clip(RoundedCornerShape(15.dp))
             .fillMaxWidth()
             .background(Color.Black)
-            .padding(16.dp),
+
+            .padding(16.dp)
+            ,
+            
+
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
@@ -51,13 +60,13 @@ fun CategoryCard() {
                 modifier = Modifier
                     .size(48.dp)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(Color(0xFF3B49F8)), // Arka plan mavi
+                    .background(Color(0xFF3B49F8)),
                 contentAlignment = Alignment.Center
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_launcher_background),
                     contentDescription = "Hisse Görseli",
-                    modifier = Modifier.size(24.dp), // Görsel boyutu
+                    modifier = Modifier.size(24.dp),
                     contentScale = ContentScale.Fit
                 )
             }
@@ -66,33 +75,52 @@ fun CategoryCard() {
 
             Column {
                 Text(
-                    text = "Hisse Senetleri",
+                    text = categoryName,
                     color = Color.White,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold
                 )
 
+                Spacer(modifier = Modifier.height(4.dp))
+
+                // Bar arka planı (boş bar)
                 Box(
                     modifier = Modifier
-
-                        .padding(top = 4.dp)
-                        .background(Color.White, RoundedCornerShape(50))
-                        .padding(horizontal = 12.dp, vertical = 2.dp)
+                        .width(80.dp)
+                        .height(16.dp)
+                        .clip(RoundedCornerShape(50))
+                        .background(Color.White.copy(alpha = 0.3f))
                 ) {
-                    Text(text = "100%", color = Color.Black, fontSize = 12.sp)
+                    // Doluluk kısmı
+                    Box(
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .width((80.dp * (percentage / 100f)))
+                            .clip(RoundedCornerShape(50))
+                            .background(Color.White),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "$percentage%",
+                            color = Color.Black,
+                            fontSize = 15.sp,
+
+
+                        )
+                    }
                 }
             }
         }
 
         Column(horizontalAlignment = Alignment.End) {
             Text(
-                text = "3.817,36 TL",
+                text = value,
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
             Text(
-                text = "-0.00% Zarar",
+                text = profitLoss,
                 color = Color.Red,
                 fontSize = 12.sp
             )
