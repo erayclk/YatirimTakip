@@ -47,7 +47,7 @@ fun HomeScreen() {
     var isFabExpanded by remember { mutableStateOf(false) }
 
     Scaffold(
-        containerColor = Color.DarkGray,
+
         floatingActionButtonPosition = FabPosition.End,
         floatingActionButton = {
             Box(modifier = Modifier.padding(bottom = 70.dp)) { // FAB'i BottomBar'ın üstüne al
@@ -115,20 +115,7 @@ fun HomeScreen() {
                 }
             }
         },
-        bottomBar = {
-            NavigationBar {
-                NavigationBarItem(
-                    selected = true,
-                    onClick = { /* nav item */ },
-                    icon = { Icon(Icons.Default.Home, contentDescription = "Home") }
-                )
-                NavigationBarItem(
-                    selected = false,
-                    onClick = { /* nav item */ },
-                    icon = { Icon(Icons.Default.Settings, contentDescription = "Settings") }
-                )
-            }
-        }
+
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -137,6 +124,7 @@ fun HomeScreen() {
                 .padding(25.dp)
         ) {
             Text("Merhaba, Scaffold!")
+            Spacer(modifier = Modifier.padding(10.dp))
             TotalBalanceCard(
                 price = 100.0,
                 changeAmount = 5.0,

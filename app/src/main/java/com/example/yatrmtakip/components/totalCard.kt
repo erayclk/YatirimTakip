@@ -41,7 +41,7 @@ import androidx.compose.ui.unit.sp
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color(0xFF1C1C1E))
+            .background(Color(0xFF1C1C1E).copy(alpha = 0.95f), shape = RoundedCornerShape(16.dp))
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
